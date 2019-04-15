@@ -19,9 +19,6 @@ def create_new_dir(path):
 
 	return new_path
 
-# better approach: get names and text from existing csv/xlsx file.
-# audio config should be generated automatically from the prompt list instead
-
 
 def create_prompts_dict(root):
 
