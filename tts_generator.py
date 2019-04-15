@@ -13,7 +13,7 @@ class PromptParser:
         pass
 
     @staticmethod
-    def create_dict_from_xml(self):
+    def dictFromXml(self):
         xml_parser = et.XMLParser(encoding='utf-8')
         tree = et.parse(self, xml_parser)
         xml_root = tree.getroot()
@@ -23,13 +23,22 @@ class PromptParser:
         return d
 
     @staticmethod
-    def create_dict_from_csv(self):
+    def dictFromCsv(self):
+        pass
+
+    @staticmethod
+    def getLanguage(self):
         pass
 
     #  PERHAPS create separate class or handling for manipulation of data???
 
+# class PromptsHandler:
+
+    # def __init__(self):
+    #    pass
+
     # @staticmethod
-    # def store_tts(dir_name):
+    # def storeTTS(dir_name):
     #
     # 	for k, v in prompts_dict.items():
     # 		tts = gTTS(text=v[1], lang=v[2])
@@ -42,19 +51,24 @@ class PromptParser:
     # 			subprocess.call(['ffmpeg', '-i', f, "${f%.*}.wav"])
 
 
-def create_new_dir(path):
-
-    current_path = os.getcwd()
-    new_path = current_path + path
-
-    try:
-        os.mkdir(new_path)
-    except OSError:
-        print("Creation of the directory %s failed or already exists" % new_path)
-    else:
-        print("Successfully created the directory %s " % new_path)
-
-    return new_path
+    # @staticmethod
+    # def createDir(path):
+    #
+    #     current_path = os.getcwd()
+    #     new_path = current_path + path
+    #
+    #     try:
+    #         os.mkdir(new_path)
+    #     except OSError:
+    #         print("Creation of the directory %s failed or already exists" % new_path)
+    #     else:
+    #         print("Successfully created the directory %s " % new_path)
+    #
+    #     return new_path
+    #
+    #
+    #
+    # new_dir = create_new_dir('/tmp/%s' % args.file_path)
 
 
 parser = argparse.ArgumentParser()
@@ -62,6 +76,6 @@ parser.add_argument("-f", "--file", dest="file_path", help="prompt list file", m
 
 args = parser.parse_args()
 
-new_dir = create_new_dir('/tmp/%s' % args.file_path)
+
 
 
