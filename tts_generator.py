@@ -7,7 +7,7 @@ import subprocess
 import argparse
 
 
-class PromptParser:
+class PromptsListParser:
 
     def __init__(self):
         pass
@@ -31,7 +31,7 @@ class PromptParser:
         pass
 
 
-class PromptsHandler:
+class PromptsBatchHandler:
 
     def __init__(self):
         pass
