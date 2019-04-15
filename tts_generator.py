@@ -9,38 +9,38 @@ import argparse
 
 def create_new_dir(path):
 
-	current_path = os.getcwd()
-	new_path = current_path + path
+    current_path = os.getcwd()
+    new_path = current_path + path
 
-	try:  
-		os.mkdir(new_path)
-	except OSError:  
-		print("Creation of the directory %s failed or already exists" % new_path)
-	else:  
-		print("Successfully created the directory %s " % new_path)
+    try:
+        os.mkdir(new_path)
+    except OSError:
+        print("Creation of the directory %s failed or already exists" % new_path)
+    else:
+        print("Successfully created the directory %s " % new_path)
 
-	return new_path
+    return new_path
 
 
 def create_prompts_dict(root):
 
-	d = {}
-	for idx, c in enumerate(root.getchildren()):
-		d[idx] = (c.get('file').replace('.wav', ''), c.get('prompt'))
-	return d
+    d = {}
+    for idx, c in enumerate(root.getchildren()):
+        d[idx] = (c.get('file').replace('.wav', ''), c.get('prompt'))
+    return d
 
 
 def store_tts(dir_name):
 
-	for k, v in prompts_dict.items():
-		tts = gTTS(text=v[1], lang=v[2])
-		tts.save(dir_name + '/' + v[0] + "_" + v[2] + ".mp3")
+    for k, v in prompts_dict.items():
+        tts = gTTS(text=v[1], lang=v[2])
+        tts.save(dir_name + '/' + v[0] + "_" + v[2] + ".mp3")
 
 
 def to_wav(path):
-	for directory, subdirectories, files in os.walk(path):
-		for f in files:
-			subprocess.call(['ffmpeg', '-i', f, "${f%.*}.wav"])
+    for directory, subdirectories, files in os.walk(path):
+        for f in files:
+            subprocess.call(['ffmpeg', '-i', f, "${f%.*}.wav"])
 
 
 parser = argparse.ArgumentParser()
