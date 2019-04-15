@@ -1,2 +1,2 @@
-# Automatic_TTSPrompt_Gen
-some experiments in automatic generation of tts prompt (from open source libraries)
+# Automatic_TTSPrompts_Gen
+some experiments in automatic generation of tts prompt (exploiting existing open source libraries)
