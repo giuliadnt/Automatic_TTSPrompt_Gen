@@ -1,6 +1,8 @@
 from lxml import etree as et
 from gtts import gTTS
 import os
+import spacy
+from spacy_langdetect import LanguageDetector
 import subprocess
 import argparse
 
@@ -24,7 +26,7 @@ def create_prompts_dict(root):
 
 	d = {}
 	for idx, c in enumerate(root.getchildren()):
-		d[idx] = (c.get('file').replace('.wav', ''), c.get('utterance').replace('[1P]', ''), c.get('locale')[:2])
+		d[idx] = (c.get('file').replace('.wav', ''), c.get('prompt'))
 	return d
 
 
